@@ -16,7 +16,7 @@ module.exports = {
 
 
   email : {
-    stubEmail : false,
+    stubEmail : true,
     user: process.env.PERSONAL_GMAIL_USERNAME,
     password : process.env.PERSONAL_APP_SPECIFIC_PASSWORD,
     host: process.env.GMAIL_SMTP_SERVER,
@@ -26,6 +26,15 @@ module.exports = {
     subject: "Support Payments Checker report %s"
   },
 
+  tenrox : {
+    org:      process.env.OB_TENROX_ORG,
+    username: process.env.OB_USERNAME,
+    password: process.env.OB_TENROX_PASSWORD
+  },
+
   gmailSearchCriteria: "newer_than:1m subject:'Support Payments %s - Please Check' has:attachment"
 
+  ,log: {
+    level: "INFO"
+  }
 } 

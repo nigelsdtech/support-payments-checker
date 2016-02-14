@@ -13,6 +13,7 @@ var cfg           = require('config'),
     compare       = require('./lib/compare.js'),
     cs            = require('./lib/calendarShifts.js'),
     mailer        = require('./lib/emailNotification.js');
+    timesheet     = require('./lib/tenrox.js');
 
 
 /*
@@ -40,6 +41,15 @@ log.info('============');
 
 
 
+function handleError (errMsg) {
+
+  var emailContent = "Error running support payment check on " + emailMonth.toDateString();
+     emailContent += '<p>'+errMsg;
+  
+  mailer.sendEmail(emailContent);
+
+}
+
 
 /*
  * Set up search times and go for it
@@ -56,7 +66,7 @@ pd.get({emailMonth: emailMonth},function (paymentsData) {
 
   // And get the calendar shifts
   var timeMin = new Date(emailMonth.getFullYear(), emailMonth.getMonth()-1);
-  var timeMax = new Date(emailMonth.getFullYear(), emailMonth.getMonth());
+  var timeMax = new Date(emailMonth.getFullYear(), emailMonth.getMonth(), null, null, null, emailMonth.getSeconds()-1);
 
   cs.get({
     timeMin: timeMin,
@@ -65,25 +75,46 @@ pd.get({emailMonth: emailMonth},function (paymentsData) {
 
     log.info("Retrieved data from calendar:\n%s", JSON.stringify(calendarData))
 
-    compare.getDiffs(
-      {
-        email: paymentsData,
-        calendar: calendarData
-      },
-      function(notSynced) {
+    timesheet.get({
+      timeMin: timeMin,
+      timeMax: timeMax
+    }, function (err, oohShifts) {
+
+      if (err) {
+        var errMsg = 'index.js Error getting timesheet ooh shifts: ' + err;
+        log.error(errMsg)
+	handleError(errMsg)
+	return null;
+      }
+
+      log.info("Retrieved data from timesheet:\n%s", JSON.stringify(oohShifts))
+
+      compare.getDiffs({
+       email: paymentsData,
+       calendar: calendarData,
+       timesheet: oohShifts
+      }, function(err, notSynced) {
+
+
+        if (err) {
+          var errMsg = 'Error while comparing: ' + err;
+          log.error(errMsg)
+          handleError(errMsg)
+          return null;
+        }
 
         var emailContent = "Support payment check complete on " + emailMonth.toDateString();
-
+        
         if (notSynced.length == 0) {
           emailContent += '<p>All in sync.';
         } else {
           emailContent += '<p>Not synced:'
           emailContent += '<p>' + JSONprint(JSON.stringify(notSynced))
         }
-
+        
         mailer.sendEmail(emailContent);
-      }
-    );
+      });
+    })
   })
 
 })

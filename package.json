@@ -6,10 +6,12 @@
     "calendar-model": "github:nigelsdtech/calendar-model",
     "config": "1.19.x",
     "csvtojson": "0.5.x",
+    "dateformat": "1.0.12",
     "emailjs": "1.0.2",
     "gmail-model": "github:nigelsdtech/gmail-model",
     "json-print": "0.0.x",
-    "log4js": "0.6.x"
+    "log4js": "0.6.x",
+    "tenrox-utils": "git://github.com/nigelsdtech/tenrox-utils.git#29763fd4545c8187bc945f619204c4e54c785045"
   },
   "scripts": {
     "start": "sh scripts/start.sh",
