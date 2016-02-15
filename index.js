@@ -103,7 +103,7 @@ try {
          email: paymentsData,
          calendar: calendarData,
          timesheet: oohShifts
-        }, function(err, notSynced) {
+        }, function(err, syncChart, unSyncedCount) {
 
 
           if (err) {
@@ -115,12 +115,15 @@ try {
 
           var emailContent = "Support payment check complete on " + emailMonth.toDateString();
 
-          if (notSynced.length == 0) {
+          if (unSyncedCount == 0) {
             emailContent += '<p>All in sync.';
           } else {
-            emailContent += '<p>Not synced:'
-            emailContent += '<p>' + JSONprint(JSON.stringify(notSynced))
+            emailContent += '<p>'+unSyncedCount+' items not synced:'
           }
+
+          emailContent += '<p>';
+
+          emailContent += compare.formatSyncChartInTable({syncChart : syncChart});
 
           mailer.sendEmail(emailContent);
         });
