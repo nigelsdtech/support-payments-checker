@@ -14,7 +14,7 @@
     "json-print": "^0.0.x",
     "jws": "3.0.0",
     "log4js": "^0.6.x",
-    "request": "2.65.0",
+    "request": "~2.60.0",
     "semver": "4.3.6",
     "string-template": "0.2.1",
     "tenrox-utils": "github:nigelsdtech/tenrox-utils"
