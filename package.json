@@ -9,11 +9,14 @@
     "csvtojson": "^0.5.x",
     "emailjs": "^1.0.2",
     "gmail-model": "github:nigelsdtech/gmail-model",
+    "google-auth-library": "0.9.7",
     "googleapis": "2.1.7",
     "json-print": "^0.0.x",
+    "jws": "3.0.0",
     "log4js": "^0.6.x",
     "request": "2.65.0",
     "semver": "4.3.6",
+    "string-template": "0.2.1",
     "tenrox-utils": "github:nigelsdtech/tenrox-utils"
   },
   "scripts": {
