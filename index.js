@@ -46,7 +46,17 @@ function handleError (errMsg) {
   var emailContent = "Error running support payment check on " + emailMonth.toDateString();
      emailContent += '<p>'+errMsg;
 
-  mailer.sendEmail(emailContent);
+  mailer.sendEmail({
+    content: emailContent
+  }, function(err) {
+
+    if (err) {
+      var errMsg = 'handleError: Error sending email: ' + err;
+      log.error(errMsg)
+      return null;
+    }
+  });
+
 
 }
 
@@ -125,12 +135,34 @@ try {
 
           emailContent += compare.formatSyncChartInTable({syncChart : syncChart});
 
-          mailer.sendEmail(emailContent);
-        });
-      })
-    })
+          // Send out the email with the sync report
+          mailer.sendEmail({
+            content: emailContent
+          }, function(err) {
 
-  })
+            if (err) {
+              var errMsg = 'Error sending email: ' + err;
+              log.error(errMsg)
+              handleError(errMsg)
+              return null;
+            }
+          });
+
+          // Apply a label to the payments email to indicate it has been processed
+          if (cfg.has('applyLabelToProcessedEmail') && cfg.get('applyLabelToProcessedEmail')) {
+            pd.applyProcessedLabel(function (err,message) {
+              if (err) {
+                var errMsg = 'Error applying label: ' + err;
+                log.error(errMsg)
+                handleError(errMsg)
+                return null;
+              }
+            });
+          }
+        });
+      });
+    });
+  });
 
 } catch (err) {
 

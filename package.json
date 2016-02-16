@@ -29,7 +29,7 @@
   "description": "Check support payments are correct at the end of the month",
   "config": {
     "appName": "support-payments-checker",
-    "googleAuthScopes": "https://www.googleapis.com/auth/calendar.readonly, https://www.googleapis.com/auth/gmail.readonly"
+    "googleAuthScopes": "https://www.googleapis.com/auth/calendar.readonly, https://www.googleapis.com/auth/gmail.modify"
   },
   "repository": {
     "type": "git",
