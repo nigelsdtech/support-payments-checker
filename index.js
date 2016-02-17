@@ -8,7 +8,6 @@
 var cfg           = require('config'),
     log4js        = require('log4js'),
     calendarModel = require('calendar-model'),
-    JSONprint     = require('json-print'),
     pd            = require('./lib/paymentData.js'),
     compare       = require('./lib/compare.js'),
     cs            = require('./lib/calendarShifts.js'),
