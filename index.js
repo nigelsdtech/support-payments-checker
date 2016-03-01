@@ -83,6 +83,11 @@ try {
 
     log.info("Retrieved data from payments email:\n%s", JSON.stringify(paymentsData))
 
+    // No messages found? No need to go on
+    if (paymentsData.length == 0) {
+      log.info("No payments messages to process. Ending program.")
+      return null;
+    }
 
     // And get the calendar shifts
     var timeMin = new Date(emailMonth.getFullYear(), emailMonth.getMonth()-1);
