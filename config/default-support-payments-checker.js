@@ -32,7 +32,7 @@ module.exports = {
     password: process.env.OB_TENROX_PASSWORD
   },
 
-  gmailSearchCriteria: "newer_than:1m subject:'Support Payments EMAIL_SUBJECT_DATE - Please Check' has:attachment",
+  gmailSearchCriteria: "newer_than:1m subject:'Support Payments - Please Check' has:attachment",
   applyLabelToProcessedEmail: true
 
 } 
