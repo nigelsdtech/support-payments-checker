@@ -90,7 +90,7 @@ try {
 
     // And get the calendar shifts
     var timeMin = new Date(emailMonth.getFullYear(), emailMonth.getMonth()-1);
-    var timeMax = new Date(emailMonth.getFullYear(), emailMonth.getMonth(), 23,59,59);
+    var timeMax = new Date(emailMonth.getFullYear(), emailMonth.getMonth(), 0, 23, 59, 59);
 
     cs.get({
       timeMin: timeMin,
