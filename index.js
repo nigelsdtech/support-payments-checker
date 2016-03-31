@@ -71,7 +71,7 @@ var emailMonth = new Date()
 try {
 
   // Get the payment data sent by email
-  pd.get({emailMonth: emailMonth},function (err,paymentsData) {
+  pd.get({emailMonth: emailMonth},function (err,paymentsData,isEmailAlreadyProcessed) {
 
     if (err) {
       var errMsg = 'index.js Error getting payment data: ' + err;
@@ -80,15 +80,15 @@ try {
       return null;
     }
 
-    log.info("Retrieved data from payments email:\n%s", JSON.stringify(paymentsData))
 
     // No messages found? No need to go on
-    if (paymentsData.length == 0) {
-      log.info("No payments messages to process. Ending program.")
+    if (isEmailAlreadyProcessed) {
+      log.info("Payments email already processed. Ending program.")
       return null;
     }
 
-    // And get the calendar shifts
+    log.info("Retrieved data from payments email:\n%s", JSON.stringify(paymentsData))
+    // Get the calendar shifts
     var timeMin = new Date(emailMonth.getFullYear(), emailMonth.getMonth()-1);
     var timeMax = new Date(emailMonth.getFullYear(), emailMonth.getMonth(), 0, 23, 59, 59);
 
@@ -166,6 +166,7 @@ try {
         });
       });
     });
+
   });
 
 } catch (err) {
