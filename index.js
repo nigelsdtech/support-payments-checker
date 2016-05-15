@@ -152,17 +152,14 @@ try {
             }
           });
 
-          // Apply a label to the payments email to indicate it has been processed
-          if (cfg.has('applyLabelToProcessedEmail') && cfg.get('applyLabelToProcessedEmail')) {
-            pd.applyProcessedLabel(function (err,message) {
-              if (err) {
-                var errMsg = 'Error applying label: ' + err;
-                log.error(errMsg)
-                handleError(errMsg)
-                return null;
-              }
-            });
-          }
+	  pd.updateLabels (function (err,message) {
+            if (err) {
+              var errMsg = 'Error updating labels: ' + err;
+              log.error(errMsg)
+              handleError(errMsg)
+              return null;
+            }
+          });
         });
       });
     });
