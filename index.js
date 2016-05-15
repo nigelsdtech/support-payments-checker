@@ -71,7 +71,9 @@ var emailMonth = new Date()
 try {
 
   // Get the payment data sent by email
-  pd.get({emailMonth: emailMonth},function (err,paymentsData,isEmailAlreadyProcessed) {
+  pd.get({
+    emailMonth: emailMonth
+  },function (err,paymentsData,isEmailAlreadyProcessed) {
 
     if (err) {
       var errMsg = 'index.js Error getting payment data: ' + err;
