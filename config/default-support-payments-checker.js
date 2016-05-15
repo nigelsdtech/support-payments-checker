@@ -33,6 +33,8 @@ module.exports = {
   },
 
   gmailSearchCriteria: "newer_than:1m subject:'Support Payments - Please Check' has:attachment",
-  applyLabelToProcessedEmail: true
+  applyLabelToProcessedEmail: true,
+  stubTenrox: true
 
+  ,log : { level : "DEBUG" }
 } 

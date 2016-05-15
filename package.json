@@ -7,6 +7,7 @@
     "calendar-model": "github:nigelsdtech/calendar-model#0.0.1",
     "config": "^1.19.x",
     "csvtojson": "^0.5.x",
+    "dateformat": "1.0.12",
     "emailjs": "^1.0.2",
     "gmail-model": "github:nigelsdtech/gmail-model#0.0.1",
     "google-auth-library": "0.9.7",
