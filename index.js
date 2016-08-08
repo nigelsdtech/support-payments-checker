@@ -73,7 +73,7 @@ try {
   // Get the payment data sent by email
   pd.get({
     emailMonth: emailMonth
-  },function (err,paymentsData,isEmailAlreadyProcessed) {
+  },function (err,paymentsData,isProcessingRequired) {
 
     if (err) {
       var errMsg = 'index.js Error getting payment data: ' + err;
@@ -84,8 +84,8 @@ try {
 
 
     // No messages found? No need to go on
-    if (isEmailAlreadyProcessed) {
-      log.info("Payments email already processed. Ending program.")
+    if (!isProcessingRequired) {
+      log.info("Processing not required. Ending program.")
       return null;
     }
 
