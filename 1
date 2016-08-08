@@ -70,7 +70,7 @@ function Get(params,callback) {
       return null
     }
 
-    if (!isProcessingRequired) {
+    if (isProcessingRequired) {
       callback(null,null,isProcessingRequired)
       return null
     } else {
@@ -80,7 +80,7 @@ function Get(params,callback) {
 
       converter.fromString(paymentsData, function(err,result){
         if (err) {
-          log.error('PaymentData: Error converting csv to json - %s\n%s',err.toString(),JSON.stringify(paymentsData))
+          log.error('PaymentData: Error converting csv to json - %s\n%s',err,JSON.stringify(paymentsData))
           callback(new Error(err))
           return null
         } else {
