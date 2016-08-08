@@ -9,7 +9,7 @@
     "csvtojson": "^0.5.x",
     "dateformat": "1.0.12",
     "emailjs": "^1.0.2",
-    "gmail-model": "github:nigelsdtech/gmail-model#0.0.1",
+    "gmail-model": "github:nigelsdtech/gmail-model",
     "google-auth-library": "0.9.7",
     "googleapis": "^2.1.7",
     "json-print": "^0.0.5",

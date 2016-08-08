@@ -1,0 +1,36 @@
+
+/usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+
+/usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: 
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: 
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: 
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: 
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: /usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: /usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: /usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: :/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: :/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+node paths: :/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
+
+env path: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/nigelsd/Workspace/support-payments-checker/node_modules/.bin:/usr/bin:/bin
+
+ Node path: /usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript
